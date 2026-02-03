@@ -41,16 +41,7 @@ export default function Home() {
 
   const getImageUrl = () => {
     if (!result) return "";
-    const params = new URLSearchParams({
-      typeKey: result.typeResult.typeKey,
-      nameJa: result.typeResult.nameJa,
-      stars: result.stars.toString(),
-      exposure: result.params.exposure.toString(),
-      awareness: result.params.awareness.toString(),
-      collateral: result.params.collateral.toString(),
-      verdict: result.typeResult.verdict,
-    });
-    return `/api/og?${params.toString()}`;
+    return `/images/${result.mbti.toLowerCase()}.png`;
   };
 
   const handleShare = () => {
