@@ -1,0 +1,273 @@
+{
+  "version": "2026-02-03",
+  "title": "FC-MBTI / Face-Cock Behavioral Index",
+  "disclaimer": "この診断はジョークです。医学・心理学的根拠はありません。結果は演出であり、人格や価値を断定するものではありません。",
+  "scoring": {
+    "mbti": {
+      "axisQuestions": {
+        "EI": [1, 2, 3, 4, 5],
+        "SN": [6, 7, 8, 9, 10],
+        "TF": [11, 12, 13, 14, 15],
+        "JP": [16, 17, 18, 19, 20]
+      },
+      "tiebreaker": "first"
+    },
+    "fc": {
+      "basePointsByOptionKey": { "A": 3, "B": 2, "C": 1, "D": 3 },
+      "bonuses": [
+        { "ifDominant": "T", "add": 5 },
+        { "ifDominant": "J", "add": 5 },
+        { "ifMbtiIn": ["ENTJ", "INTJ"], "add": 10 }
+      ],
+      "stars": [
+        { "min": 0, "max": 29, "stars": 1 },
+        { "min": 30, "max": 44, "stars": 2 },
+        { "min": 45, "max": 59, "stars": 3 },
+        { "min": 60, "max": 74, "stars": 4 },
+        { "min": 75, "max": 999, "stars": 5 }
+      ],
+      "params": {
+        "notes": "paramsは演出用。exposureはfcScore正規化、awareness/collateralは選択傾向とMBTI補正で算出する想定。",
+        "awareness": {
+          "base": 50,
+          "addPerB": 6,
+          "subPerD": 7,
+          "clamp": [0, 100]
+        },
+        "collateral": {
+          "base": 20,
+          "addPerD": 6,
+          "addIfDominantT": 12,
+          "addIfDominantJ": 12,
+          "clamp": [0, 100]
+        },
+        "exposure": {
+          "normalizeFromFcScore": true,
+          "cap": 100
+        }
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "axis": "EI",
+      "text": "会議で自分の意見があるとき、あなたは？",
+      "options": [
+        { "key": "A", "label": "できるだけ早く共有する", "mbti": "E", "fc": 3, "tags": ["assertive"] },
+        { "key": "B", "label": "流れを見てから発言する", "mbti": "E", "fc": 2, "tags": ["considerate"] },
+        { "key": "C", "label": "聞かれたら答える", "mbti": "I", "fc": 1, "tags": ["reserved"] },
+        { "key": "D", "label": "内心では別案を持っている", "mbti": "I", "fc": 3, "tags": ["silentCritical"] }
+      ]
+    },
+    {
+      "id": 2,
+      "axis": "EI",
+      "text": "初対面の集まりでの立ち位置は？",
+      "options": [
+        { "key": "A", "label": "自然と中心になる", "mbti": "E", "fc": 3, "tags": ["spotlight"] },
+        { "key": "B", "label": "話しかけられやすい位置にいる", "mbti": "E", "fc": 2, "tags": ["approachable"] },
+        { "key": "C", "label": "静かに観察している", "mbti": "I", "fc": 1, "tags": ["observer"] },
+        { "key": "D", "label": "早く帰りたい", "mbti": "I", "fc": 3, "tags": ["escape"] }
+      ]
+    },
+    {
+      "id": 3,
+      "axis": "EI",
+      "text": "自分の考えが理解されないとき、あなたは？",
+      "options": [
+        { "key": "A", "label": "説明不足だったと思う", "mbti": "E", "fc": 3, "tags": ["explainMore"] },
+        { "key": "B", "label": "相手の理解力の問題だと思う", "mbti": "E", "fc": 2, "tags": ["blame"] },
+        { "key": "C", "label": "伝え方を変える", "mbti": "I", "fc": 1, "tags": ["adapt"] },
+        { "key": "D", "label": "まあいいかと思う", "mbti": "I", "fc": 3, "tags": ["detached"] }
+      ]
+    },
+    {
+      "id": 4,
+      "axis": "EI",
+      "text": "SNSでの発言は？",
+      "options": [
+        { "key": "A", "label": "思ったことを率直に書く", "mbti": "E", "fc": 3, "tags": ["broadcast"] },
+        { "key": "B", "label": "誤解されないよう配慮する", "mbti": "E", "fc": 2, "tags": ["selfCensor"] },
+        { "key": "C", "label": "基本は見る専", "mbti": "I", "fc": 1, "tags": ["lurker"] },
+        { "key": "D", "label": "発言する人を冷静に分析している", "mbti": "I", "fc": 3, "tags": ["analyst"] }
+      ]
+    },
+    {
+      "id": 5,
+      "axis": "EI",
+      "text": "自分は「目立つタイプ」だと思う？",
+      "options": [
+        { "key": "A", "label": "かなりそう", "mbti": "E", "fc": 3, "tags": ["selfAware"] },
+        { "key": "B", "label": "状況次第", "mbti": "E", "fc": 2, "tags": ["conditional"] },
+        { "key": "C", "label": "あまり", "mbti": "I", "fc": 1, "tags": ["lowProfile"] },
+        { "key": "D", "label": "目立つ人を客観視している", "mbti": "I", "fc": 3, "tags": ["meta"] }
+      ]
+    },
+    {
+      "id": 6,
+      "axis": "SN",
+      "text": "物事を判断するとき重視するのは？",
+      "options": [
+        { "key": "A", "label": "実績やデータ", "mbti": "S", "fc": 3, "tags": ["data"] },
+        { "key": "B", "label": "全体の流れ", "mbti": "S", "fc": 2, "tags": ["context"] },
+        { "key": "C", "label": "直感", "mbti": "N", "fc": 1, "tags": ["intuition"] },
+        { "key": "D", "label": "背景構造", "mbti": "N", "fc": 3, "tags": ["system"] }
+      ]
+    },
+    {
+      "id": 7,
+      "axis": "SN",
+      "text": "他人の話を聞くとき、気になるのは？",
+      "options": [
+        { "key": "A", "label": "事実関係", "mbti": "S", "fc": 3, "tags": ["facts"] },
+        { "key": "B", "label": "意図", "mbti": "S", "fc": 2, "tags": ["intent"] },
+        { "key": "C", "label": "気持ち", "mbti": "N", "fc": 1, "tags": ["emotion"] },
+        { "key": "D", "label": "論理の穴", "mbti": "N", "fc": 3, "tags": ["loophole"] }
+      ]
+    },
+    {
+      "id": 8,
+      "axis": "SN",
+      "text": "問題が起きたとき、まずするのは？",
+      "options": [
+        { "key": "A", "label": "すぐ解決策を考える", "mbti": "S", "fc": 3, "tags": ["fix"] },
+        { "key": "B", "label": "根本原因を探る", "mbti": "S", "fc": 2, "tags": ["rootCause"] },
+        { "key": "C", "label": "周囲への影響を考える", "mbti": "N", "fc": 1, "tags": ["impact"] },
+        { "key": "D", "label": "そもそも問題設定を疑う", "mbti": "N", "fc": 3, "tags": ["reframe"] }
+      ]
+    },
+    {
+      "id": 9,
+      "axis": "SN",
+      "text": "「常識」について、あなたは？",
+      "options": [
+        { "key": "A", "label": "守るべきもの", "mbti": "S", "fc": 3, "tags": ["traditional"] },
+        { "key": "B", "label": "参考程度", "mbti": "S", "fc": 2, "tags": ["pragmatic"] },
+        { "key": "C", "label": "人による", "mbti": "N", "fc": 1, "tags": ["relativist"] },
+        { "key": "D", "label": "更新されるべき", "mbti": "N", "fc": 3, "tags": ["reformer"] }
+      ]
+    },
+    {
+      "id": 10,
+      "axis": "SN",
+      "text": "将来について考えるとき、近いのは？",
+      "options": [
+        { "key": "A", "label": "現実的な計画", "mbti": "S", "fc": 3, "tags": ["plan"] },
+        { "key": "B", "label": "可能性", "mbti": "S", "fc": 2, "tags": ["possibility"] },
+        { "key": "C", "label": "なりたい姿", "mbti": "N", "fc": 1, "tags": ["vision"] },
+        { "key": "D", "label": "社会全体の変化", "mbti": "N", "fc": 3, "tags": ["macro"] }
+      ]
+    },
+    {
+      "id": 11,
+      "axis": "TF",
+      "text": "友人が間違っていると思ったら？",
+      "options": [
+        { "key": "A", "label": "はっきり指摘する", "mbti": "T", "fc": 3, "tags": ["direct"] },
+        { "key": "B", "label": "やんわり伝える", "mbti": "T", "fc": 2, "tags": ["softDirect"] },
+        { "key": "C", "label": "相手の気持ちを優先する", "mbti": "F", "fc": 1, "tags": ["care"] },
+        { "key": "D", "label": "状況を見て黙る", "mbti": "F", "fc": 3, "tags": ["withhold"] }
+      ]
+    },
+    {
+      "id": 12,
+      "axis": "TF",
+      "text": "正論を言ったのに場が冷えた。あなたは？",
+      "options": [
+        { "key": "A", "label": "納得いかない", "mbti": "T", "fc": 3, "tags": ["righteous"] },
+        { "key": "B", "label": "言い方を反省する", "mbti": "T", "fc": 2, "tags": ["polish"] },
+        { "key": "C", "label": "空気を読めなかったと思う", "mbti": "F", "fc": 1, "tags": ["selfReflect"] },
+        { "key": "D", "label": "周囲が未熟だと思う", "mbti": "F", "fc": 3, "tags": ["contempt"] }
+      ]
+    },
+    {
+      "id": 13,
+      "axis": "TF",
+      "text": "他人の感情は？",
+      "options": [
+        { "key": "A", "label": "理解できる", "mbti": "T", "fc": 3, "tags": ["confidentEmpathy"] },
+        { "key": "B", "label": "理解しようとする", "mbti": "T", "fc": 2, "tags": ["attempt"] },
+        { "key": "C", "label": "尊重すべき", "mbti": "F", "fc": 1, "tags": ["respect"] },
+        { "key": "D", "label": "判断材料の一つ", "mbti": "F", "fc": 3, "tags": ["instrumental"] }
+      ]
+    },
+    {
+      "id": 14,
+      "axis": "TF",
+      "text": "「優しさ」とは？",
+      "options": [
+        { "key": "A", "label": "正しいことを言うこと", "mbti": "T", "fc": 3, "tags": ["truth"] },
+        { "key": "B", "label": "支えること", "mbti": "T", "fc": 2, "tags": ["support"] },
+        { "key": "C", "label": "傷つけないこと", "mbti": "F", "fc": 1, "tags": ["avoidHurt"] },
+        { "key": "D", "label": "甘やかさないこと", "mbti": "F", "fc": 3, "tags": ["toughLove"] }
+      ]
+    },
+    {
+      "id": 15,
+      "axis": "TF",
+      "text": "トラブル時に取りがちな態度は？",
+      "options": [
+        { "key": "A", "label": "解決を急ぐ", "mbti": "T", "fc": 3, "tags": ["urgentFix"] },
+        { "key": "B", "label": "全員の意見を聞く", "mbti": "T", "fc": 2, "tags": ["collect"] },
+        { "key": "C", "label": "当事者を気遣う", "mbti": "F", "fc": 1, "tags": ["comfort"] },
+        { "key": "D", "label": "感情論を排除する", "mbti": "F", "fc": 3, "tags": ["excludeEmotion"] }
+      ]
+    },
+    {
+      "id": 16,
+      "axis": "JP",
+      "text": "予定が狂ったとき、あなたは？",
+      "options": [
+        { "key": "A", "label": "修正案を出す", "mbti": "J", "fc": 3, "tags": ["replan"] },
+        { "key": "B", "label": "代替案を考える", "mbti": "J", "fc": 2, "tags": ["alternate"] },
+        { "key": "C", "label": "流れに任せる", "mbti": "P", "fc": 1, "tags": ["goWithFlow"] },
+        { "key": "D", "label": "混乱を観察する", "mbti": "P", "fc": 3, "tags": ["spectate"] }
+      ]
+    },
+    {
+      "id": 17,
+      "axis": "JP",
+      "text": "決断は？",
+      "options": [
+        { "key": "A", "label": "早い方", "mbti": "J", "fc": 3, "tags": ["decisive"] },
+        { "key": "B", "label": "納得してから", "mbti": "J", "fc": 2, "tags": ["deliberate"] },
+        { "key": "C", "label": "気分次第", "mbti": "P", "fc": 1, "tags": ["mood"] },
+        { "key": "D", "label": "状況次第", "mbti": "P", "fc": 3, "tags": ["itDepends"] }
+      ]
+    },
+    {
+      "id": 18,
+      "axis": "JP",
+      "text": "自分はどれに近い？",
+      "options": [
+        { "key": "A", "label": "しっかり者", "mbti": "J", "fc": 3, "tags": ["reliable"] },
+        { "key": "B", "label": "柔軟", "mbti": "J", "fc": 2, "tags": ["flexible"] },
+        { "key": "C", "label": "マイペース", "mbti": "P", "fc": 1, "tags": ["ownPace"] },
+        { "key": "D", "label": "客観的", "mbti": "P", "fc": 3, "tags": ["detachedObjective"] }
+      ]
+    },
+    {
+      "id": 19,
+      "axis": "JP",
+      "text": "ルールに対して近いのは？",
+      "options": [
+        { "key": "A", "label": "守る", "mbti": "J", "fc": 3, "tags": ["comply"] },
+        { "key": "B", "label": "理解して使う", "mbti": "J", "fc": 2, "tags": ["useRules"] },
+        { "key": "C", "label": "必要なら破る", "mbti": "P", "fc": 1, "tags": ["breakWhenNeeded"] },
+        { "key": "D", "label": "ルールを設計したい", "mbti": "P", "fc": 3, "tags": ["ruleMaker"] }
+      ]
+    },
+    {
+      "id": 20,
+      "axis": "JP",
+      "text": "人生は？",
+      "options": [
+        { "key": "A", "label": "計画が大事", "mbti": "J", "fc": 3, "tags": ["planner"] },
+        { "key": "B", "label": "バランス", "mbti": "J", "fc": 2, "tags": ["balance"] },
+        { "key": "C", "label": "流れ", "mbti": "P", "fc": 1, "tags": ["flow"] },
+        { "key": "D", "label": "構造", "mbti": "P", "fc": 3, "tags": ["structure"] }
+      ]
+    }
+  ]
+}
