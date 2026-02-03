@@ -173,7 +173,7 @@ export default function Home() {
             </div>
             <div className="param">
               <div className="param-value">{result.params.collateral}%</div>
-              <div className="param-label">巻き添え被害</div>
+              <div className="param-label">無自覚加害性</div>
             </div>
           </div>
 
