@@ -39,6 +39,20 @@ export default function Home() {
     setResult(null);
   };
 
+  const getImageUrl = () => {
+    if (!result) return "";
+    const params = new URLSearchParams({
+      typeKey: result.typeResult.typeKey,
+      nameJa: result.typeResult.nameJa,
+      stars: result.stars.toString(),
+      exposure: result.params.exposure.toString(),
+      awareness: result.params.awareness.toString(),
+      collateral: result.params.collateral.toString(),
+      verdict: result.typeResult.verdict,
+    });
+    return `/api/og?${params.toString()}`;
+  };
+
   const handleShare = () => {
     if (!result) return;
     const text = `私は${result.typeResult.typeKey}（${result.typeResult.nameJa}）でした。\n顔ちんぽ度：${"★".repeat(result.stars)}${"☆".repeat(5 - result.stars)}\n\n#FCMBTI #診断 #ジョーク`;
@@ -47,6 +61,24 @@ export default function Home() {
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
       "_blank"
     );
+  };
+
+  const handleDownloadImage = async () => {
+    const imageUrl = getImageUrl();
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `fc-mbti-${result?.typeResult.typeKey || "result"}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Failed to download image:", error);
+    }
   };
 
   if (phase === "start") {
@@ -151,7 +183,15 @@ export default function Home() {
             ))}
           </ul>
 
+          <div className="image-preview">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={getImageUrl()} alt="診断結果" className="result-image" />
+          </div>
+
           <div className="share-section">
+            <button className="btn btn-primary btn-download" onClick={handleDownloadImage}>
+              画像をダウンロード
+            </button>
             <button className="btn btn-primary btn-share" onClick={handleShare}>
               Xでシェア
             </button>
