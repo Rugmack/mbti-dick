@@ -160,6 +160,7 @@ export default function Home() {
                 </span>
               ))}
             </div>
+            <div className="length-display">{result.stars * 20}cm</div>
           </div>
 
           <div className="params">

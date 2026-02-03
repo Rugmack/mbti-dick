@@ -200,6 +200,14 @@ body {
   color: #d2d2d7;
 }
 
+.length-display {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent);
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
 .params {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
