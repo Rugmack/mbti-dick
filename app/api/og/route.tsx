@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
             marginBottom: 8,
           }}
         >
-          FC-MBTI 診断結果
+          顔ちんぽ診断結果
         </div>
 
         {/* Type Key */}

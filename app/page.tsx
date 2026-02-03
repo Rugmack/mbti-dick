@@ -55,7 +55,7 @@ export default function Home() {
 
   const handleShare = () => {
     if (!result) return;
-    const text = `私は${result.typeResult.typeKey}（${result.typeResult.nameJa}）でした。\n顔ちんぽ度：${"★".repeat(result.stars)}${"☆".repeat(5 - result.stars)}\n\n#FCMBTI #診断 #ジョーク`;
+    const text = `【悲報】俺の顔ちんぽ、${result.typeResult.nameJa}だった\n\n${"★".repeat(result.stars)}${"☆".repeat(5 - result.stars)}（${result.stars}/5）\n\n#顔ちんぽ診断 #FCMBTI`;
     const url = window.location.href;
     window.open(
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
@@ -85,21 +85,25 @@ export default function Home() {
     return (
       <div className="container">
         <div className="card">
-          <h1 className="title">FC-MBTI</h1>
-          <p className="subtitle">Face-Cock Behavioral Index</p>
+          <h1 className="title">顔ちんぽ診断</h1>
+          <p className="subtitle">FC-MBTI / Face-Cock Behavioral Index</p>
 
           <div className="disclaimer">
-            この診断はジョークです。医学・心理学的根拠はありません。結果は演出であり、人格や価値を断定するものではありません。
+            これはクソ診断です。科学的根拠ゼロ。真に受けた人から順に顔ちんぽが伸びます。
           </div>
 
-          <p style={{ marginBottom: "24px", textAlign: "center" }}>
-            20問の質問に答えて、あなたの
+          <p style={{ marginBottom: "24px", textAlign: "center", lineHeight: "1.8" }}>
+            あなたの顔からは、どのくらい
             <br />
-            <strong>顔ちんぽ度</strong>を診断します。
+            <strong style={{ fontSize: "1.2em" }}>ちんぽが生えているでしょうか？</strong>
+            <br />
+            <span style={{ fontSize: "0.85em", color: "var(--text-muted)" }}>
+              20問の質問で暴きます
+            </span>
           </p>
 
           <button className="btn btn-primary" onClick={handleStart}>
-            診断スタート
+            己の顔ちんぽを知る
           </button>
         </div>
       </div>
@@ -163,20 +167,20 @@ export default function Home() {
             </div>
             <div className="param">
               <div className="param-value">{result.params.collateral}%</div>
-              <div className="param-label">無自覚加害性</div>
+              <div className="param-label">巻き添え被害</div>
             </div>
           </div>
 
           <p style={{ textAlign: "center", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "16px" }}>
-            （パラメータは演出です。値が高い＝偉い、ではありません。）
+            （数値が高いほどヤバいです）
           </p>
 
-          <div className="section-title">タイプ概要</div>
+          <div className="section-title">症状</div>
           <p className="description">{result.typeResult.description}</p>
 
           <div className="verdict">{result.typeResult.verdict}</div>
 
-          <div className="section-title">引っ込めるためのヒント（※完全には治りません）</div>
+          <div className="section-title">しまい方のコツ（※しまえません）</div>
           <ul className="advice-list">
             {result.typeResult.advice.map((advice, i) => (
               <li key={i}>{advice}</li>
@@ -190,13 +194,13 @@ export default function Home() {
 
           <div className="share-section">
             <button className="btn btn-primary btn-download" onClick={handleDownloadImage}>
-              画像をダウンロード
+              恥を保存する
             </button>
             <button className="btn btn-primary btn-share" onClick={handleShare}>
-              Xでシェア
+              Xで晒す
             </button>
             <button className="btn btn-retry" onClick={handleRetry}>
-              もう一度診断する
+              もう一度恥をかく
             </button>
           </div>
 
