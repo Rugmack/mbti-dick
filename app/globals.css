@@ -5,13 +5,14 @@
 }
 
 :root {
-  --bg: #1a1a2e;
-  --bg-card: #16213e;
+  --bg: #f5f5f7;
+  --bg-card: #ffffff;
   --accent: #e94560;
-  --accent-hover: #ff6b6b;
-  --text: #eaeaea;
-  --text-muted: #a0a0a0;
-  --star: #ffd700;
+  --accent-hover: #d63850;
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --star: #ff9500;
+  --border: #d2d2d7;
 }
 
 body {
@@ -33,7 +34,8 @@ body {
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
 }
 
 .title {
@@ -41,7 +43,7 @@ body {
   font-weight: bold;
   text-align: center;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, var(--accent), #ff9966);
+  background: linear-gradient(135deg, var(--accent), #ff6b6b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -55,8 +57,8 @@ body {
 }
 
 .disclaimer {
-  background: rgba(233, 69, 96, 0.1);
-  border: 1px solid rgba(233, 69, 96, 0.3);
+  background: #fff5f5;
+  border: 1px solid #ffcdd2;
   border-radius: 8px;
   padding: 12px;
   font-size: 0.8rem;
@@ -83,7 +85,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
 }
 
 .btn-primary:active {
@@ -93,7 +95,7 @@ body {
 .progress-bar {
   width: 100%;
   height: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e5e5ea;
   border-radius: 4px;
   margin-bottom: 16px;
   overflow: hidden;
@@ -129,8 +131,8 @@ body {
   align-items: center;
   width: 100%;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #fafafa;
+  border: 2px solid var(--border);
   border-radius: 12px;
   color: var(--text);
   font-size: 1rem;
@@ -140,7 +142,7 @@ body {
 }
 
 .option-btn:hover {
-  background: rgba(233, 69, 96, 0.1);
+  background: #fff5f5;
   border-color: var(--accent);
 }
 
@@ -155,6 +157,7 @@ body {
   width: 28px;
   height: 28px;
   background: var(--accent);
+  color: white;
   border-radius: 50%;
   font-weight: bold;
   font-size: 0.85rem;
@@ -171,7 +174,7 @@ body {
 .type-key {
   font-size: 2.5rem;
   font-weight: bold;
-  background: linear-gradient(135deg, var(--accent), #ff9966);
+  background: linear-gradient(135deg, var(--accent), #ff6b6b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -191,11 +194,10 @@ body {
 
 .star-filled {
   color: var(--star);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .star-empty {
-  color: rgba(255, 255, 255, 0.2);
+  color: #d2d2d7;
 }
 
 .params {
@@ -208,8 +210,9 @@ body {
 .param {
   text-align: center;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #fafafa;
   border-radius: 8px;
+  border: 1px solid var(--border);
 }
 
 .param-value {
@@ -230,7 +233,7 @@ body {
   color: var(--text-muted);
   margin: 20px 0 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border);
 }
 
 .description {
@@ -245,7 +248,7 @@ body {
   color: var(--accent);
   text-align: center;
   padding: 16px;
-  background: rgba(233, 69, 96, 0.1);
+  background: #fff5f5;
   border-radius: 8px;
   margin: 16px 0;
 }
@@ -272,7 +275,8 @@ body {
   margin: 24px 0;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
 }
 
 .result-image {
@@ -306,7 +310,7 @@ body {
 }
 
 .btn-retry:hover {
-  background: rgba(233, 69, 96, 0.1);
+  background: #fff5f5;
 }
 
 .result-disclaimer {

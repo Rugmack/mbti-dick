@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+          background: "linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%)",
           fontFamily: "sans-serif",
         }}
       >
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
         <div
           style={{
             fontSize: 32,
-            color: "#a0a0a0",
+            color: "#6e6e73",
             marginBottom: 8,
           }}
         >
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
           style={{
             fontSize: 80,
             fontWeight: "bold",
-            background: "linear-gradient(135deg, #e94560, #ff9966)",
+            background: "linear-gradient(135deg, #e94560, #ff6b6b)",
             backgroundClip: "text",
             color: "transparent",
             marginBottom: 8,
@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
         <div
           style={{
             fontSize: 36,
-            color: "#a0a0a0",
+            color: "#6e6e73",
             marginBottom: 24,
           }}
         >
@@ -75,10 +75,8 @@ export async function GET(request: NextRequest) {
             display: "flex",
           }}
         >
-          <span style={{ color: "#ffd700", textShadow: "0 0 10px rgba(255, 215, 0, 0.5)" }}>
-            {starsFilled}
-          </span>
-          <span style={{ color: "rgba(255, 255, 255, 0.2)" }}>{starsEmpty}</span>
+          <span style={{ color: "#ff9500" }}>{starsFilled}</span>
+          <span style={{ color: "#d2d2d7" }}>{starsEmpty}</span>
         </div>
 
         {/* Parameters */}
@@ -95,12 +93,13 @@ export async function GET(request: NextRequest) {
               flexDirection: "column",
               alignItems: "center",
               padding: "16px 32px",
-              background: "rgba(255, 255, 255, 0.05)",
+              background: "#fafafa",
               borderRadius: 12,
+              border: "1px solid #d2d2d7",
             }}
           >
             <div style={{ fontSize: 40, fontWeight: "bold", color: "#e94560" }}>{exposure}%</div>
-            <div style={{ fontSize: 18, color: "#a0a0a0" }}>露出度</div>
+            <div style={{ fontSize: 18, color: "#6e6e73" }}>露出度</div>
           </div>
           <div
             style={{
@@ -108,12 +107,13 @@ export async function GET(request: NextRequest) {
               flexDirection: "column",
               alignItems: "center",
               padding: "16px 32px",
-              background: "rgba(255, 255, 255, 0.05)",
+              background: "#fafafa",
               borderRadius: 12,
+              border: "1px solid #d2d2d7",
             }}
           >
             <div style={{ fontSize: 40, fontWeight: "bold", color: "#e94560" }}>{awareness}%</div>
-            <div style={{ fontSize: 18, color: "#a0a0a0" }}>自覚</div>
+            <div style={{ fontSize: 18, color: "#6e6e73" }}>自覚</div>
           </div>
           <div
             style={{
@@ -121,12 +121,13 @@ export async function GET(request: NextRequest) {
               flexDirection: "column",
               alignItems: "center",
               padding: "16px 32px",
-              background: "rgba(255, 255, 255, 0.05)",
+              background: "#fafafa",
               borderRadius: 12,
+              border: "1px solid #d2d2d7",
             }}
           >
             <div style={{ fontSize: 40, fontWeight: "bold", color: "#e94560" }}>{collateral}%</div>
-            <div style={{ fontSize: 18, color: "#a0a0a0" }}>無自覚加害性</div>
+            <div style={{ fontSize: 18, color: "#6e6e73" }}>無自覚加害性</div>
           </div>
         </div>
 
@@ -139,7 +140,7 @@ export async function GET(request: NextRequest) {
               textAlign: "center",
               maxWidth: 800,
               padding: "16px 24px",
-              background: "rgba(233, 69, 96, 0.1)",
+              background: "#fff5f5",
               borderRadius: 12,
             }}
           >
@@ -153,7 +154,7 @@ export async function GET(request: NextRequest) {
             position: "absolute",
             bottom: 24,
             fontSize: 18,
-            color: "#666",
+            color: "#6e6e73",
           }}
         >
           ※この診断はジョークです
