@@ -6,6 +6,8 @@ import type { Answer, DiagnosisResult, OptionKey } from "@/lib/types";
 
 type Phase = "start" | "quiz" | "result";
 
+const IMAGE_VERSION = "v2";
+
 export default function Home() {
   const [phase, setPhase] = useState<Phase>("start");
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -41,7 +43,7 @@ export default function Home() {
 
   const getImageUrl = () => {
     if (!result) return "";
-    return `/images/${result.mbti.toLowerCase()}.png`;
+    return `/images/${result.mbti.toLowerCase()}.png?${IMAGE_VERSION}`;
   };
 
   const handleShare = () => {
