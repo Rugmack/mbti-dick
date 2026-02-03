@@ -41,6 +41,13 @@ export default function Home() {
     setResult(null);
   };
 
+  const handleBack = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+      setAnswers(answers.slice(0, -1));
+    }
+  };
+
   const getImageUrl = () => {
     if (!result) return "";
     return `/images/${result.mbti.toLowerCase()}.png?${IMAGE_VERSION}`;
@@ -128,6 +135,12 @@ export default function Home() {
               </button>
             ))}
           </div>
+
+          {currentQuestion > 0 && (
+            <button className="btn btn-back" onClick={handleBack}>
+              戻る
+            </button>
+          )}
         </div>
       </div>
     );
@@ -160,7 +173,7 @@ export default function Home() {
             </div>
             <div className="param">
               <div className="param-value">{result.params.collateral}%</div>
-              <div className="param-label">巻き添え被害</div>
+              <div className="param-label">無自覚加害性</div>
             </div>
           </div>
 

@@ -313,6 +313,20 @@ body {
   background: #fff5f5;
 }
 
+.btn-back {
+  margin-top: 16px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 12px 20px;
+}
+
+.btn-back:hover {
+  background: #fafafa;
+  border-color: var(--text-muted);
+}
+
 .result-disclaimer {
   text-align: center;
   color: var(--text-muted);
